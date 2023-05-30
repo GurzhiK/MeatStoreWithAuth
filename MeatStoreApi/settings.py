@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'api.order',
     'corsheaders',
     'django_filters',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
@@ -175,9 +177,14 @@ DJOSER = {
     'SEND_ACTIVATION_EMAIL': True,
     'SERIALIZERS': {
         'user_create': 'accounts.serializers.UserCreateSerializer',
+        'current_user': 'accounts.serializers.UserCreateSerializer',
         'user': 'accounts.serializers.UserCreateSerializer',
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     }
 }
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend'
+]
 
 AUTH_USER_MODEL = 'accounts.UserAccount'
