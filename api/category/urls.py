@@ -4,7 +4,7 @@ from .views import CategoryList, CategoryDetail, CategoryCreate, CategoryDelete,
 
 urlpatterns = [
     path('categories/', CategoryList.as_view(), name='category-list'),
-    path('categories/<int:pk>/',
+    path('categories/detail/<int:pk>/',
          CategoryDetail.as_view(), name='category-detail'),
     path('categories/create/',
          CategoryCreate.as_view(), name='category-create'),
